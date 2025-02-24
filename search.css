@@ -4,119 +4,159 @@
     padding: 0px;
   }
   
-  ::-webkit-scrollbar {
-    width: 14px;
-  }
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 14px; /* Sets width of vertical scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0); /* Transparent track for cleaner appearance */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.589); /* Semi-transparent gray scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.637); /* Slightly darker on hover for better user feedback */
+}
   
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0);
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: rgba(136, 136, 136, 0.589);
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(85, 85, 85, 0.637);
-  }
-  
-  html, body, #app, #principal {
-    width: 100%;
-    height: 100%;
-    overflow-y: hidden;
-  }
-  
-  #app {
-    min-width: 767px;
-    overflow-x: auto;
-  }
-  
-  #principal {
-    background-color: #780410;
-    transition: background-color 1s ease;
-    color: #fff;
-  }
-  #principal #latNav {
-    max-width: 210px;
-    background-color: #0a0a0a;
-    
-  }
-  #principal #latNav a {
-    text-decoration: none;
-    color: #fff;
-  }
-  #principal #latNav .nav .nav-item .nav-link {
-    color: #fff;
-    fill: #fff;
-    font-size: 0.9em;
-    font-weight: bold;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
-  #principal #latNav .nav .nav-item .nav-link svg {
-    margin-right: 13px;
-  }
-  #principal #latNav .nav .nav-item .nav-link.ativo, #principal #latNav .nav .nav-item .nav-link:hover {
-    opacity: 1;
-  }
-  #principal #latNav #underList button {
-    background-color: rgba(0, 0, 0, 0);
-    border: 0;
-    display: flex;
-    color: #fff;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    padding: 8px 24px;
-    width: 100%;
-    font-size: 0.9em;
-    font-weight: bold;
-  }
-  #principal #latNav #underList button .plus_bttn, #principal #latNav #underList button .heart_bttn {
-    width: 24px;
-    height: 24px;
-    margin-right: 16px;
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  #principal #latNav #underList button .plus_bttn {
-    background-color: #fff;
-  }
-  #principal #latNav #underList button .heart_bttn {
-    background: linear-gradient(125deg, #773de3 41%, #cffff1 100%);
-    fill: #fff;
-  }
-  #principal #latNav #underList button:hover {
-    opacity: 1;
-  }
-  #principal #latNav #playlistSidebar {
-    width: 100%;
-    overflow-y: auto;
-    box-shadow: inset 0 30px 15px rgba(10, 10, 10, 0.2);
-  }
-  #principal #latNav #playlistSidebar li {
-    width: 100%;
-    list-style-type: none;
-  }
-  #principal #latNav #playlistSidebar li a {
-    font-size: 0.9em;
-    font-weight: 500;
-  }
-  #principal #latNav #installApp {
-    fill: #fff;
-    font-size: 0.95em;
-    font-weight: 500;
-    opacity: 0.8;
-    transition: opacity 0.3s;
-    margin-left: 20px;
-  }
-  #principal #latNav #installApp svg {
-    margin-right: 15px;
-  }
-  #principal #latNav #installApp:hover {
-    opacity: 1;
-  }
+
+  /* Set base layout for the entire application */
+html,
+body,
+#app,
+#principal {
+ width: 100%;
+ height: 100%;
+ overflow-y: hidden; /* Prevents vertical scrolling at document level */
+}
+
+/* Application container settings */
+#app {
+ min-width: 767px; /* Minimum width for responsive design */
+ overflow-x: auto; /* Allows horizontal scrolling if content exceeds min-width */
+}
+
+/* Main content container */
+#principal {
+ background-color: #780410; /* Dark red background */
+ transition: background-color 1s ease; /* Smooth background color transition effect */
+ color: #fff; /* White text for better contrast */
+}
+
+/* Side navigation panel */
+#principal #sidebar {
+ max-width: 246px; /* Fixed maximum width for the navigation */
+ background-color: #0a0a0a; /* Near-black background for contrast */
+}
+
+/* Sidebar link default styles */
+#principal #sidebar a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Navigation item links styling */
+#principal #sidebar .nav .nav-item .nav-link {
+  color: #fff;
+  fill: #fff;
+  font-size: 0.9em;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: opacity 0.3s ease; /* Smooth hover effect */
+}
+
+/* Icon spacing in navigation links */
+#principal #sidebar .nav .nav-item .nav-link svg {
+  margin-right: 13px;
+}
+
+/* Active and hover states for nav links */
+#principal #sidebar .nav .nav-item .nav-link.ativo,
+#principal #sidebar .nav .nav-item .nav-link:hover {
+  opacity: 1;
+}
+
+/* Custom buttons in the sidebar's underList section */
+#principal #sidebar #underList button {
+  background-color: rgba(0, 0, 0, 0); /* Transparent background */
+  border: 0;
+  display: flex;
+  color: #fff;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  padding: 8px 24px;
+  width: 100%;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/* Common styles for button icons */
+#principal #sidebar #underList button .plus_bttn,
+#principal #sidebar #underList button .heart_bttn {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add button with white background */
+#principal #sidebar #underList button .plus_bttn {
+  background-color: #fff;
+}
+
+/* Favorite button with gradient background */
+#principal #sidebar #underList button .heart_bttn {
+  background: linear-gradient(125deg, #773de3 41%, #cffff1 100%);
+  fill: #fff;
+}
+
+/* Hover effect for underList buttons */
+#principal #sidebar #underList button:hover {
+  opacity: 1;
+}
+
+/* Playlist container with scrollable area */
+#principal #sidebar #playlistSidebar {
+  width: 100%;
+  overflow-y: auto;
+  box-shadow: inset 0 30px 15px rgba(10, 10, 10, 0.2); /* Shadow effect at top of scrollable area */
+}
+
+/* Playlist item styling */
+#principal #sidebar #playlistSidebar li {
+  width: 100%;
+  list-style-type: none;
+}
+
+/* Playlist link text styling */
+#principal #sidebar #playlistSidebar li a {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* Install app button/link styling */
+#principal #sidebar #installApp {
+  fill: #fff;
+  font-size: 0.9em;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+/* Icon spacing in install app button */
+#principal #sidebar #installApp svg {
+  margin-right: 15px;
+}
+
+/* Hover effect for install app button */
+#principal #sidebar #installApp:hover {
+  opacity: 1;
+}
   #principal #feed {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #121212 50%, #121212 100%);
     overflow-y: auto;

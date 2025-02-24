@@ -4,7 +4,7 @@ const dropDowns = document.getElementsByClassName('dropdownMenuButton1-dropConte
 dropdownToggle.addEventListener('click',()=>{
     for(let i=0; i<dropDowns.length; i++)
         dropDowns[i].classList.toggle('show')
-       
+        
   })
   
   window.addEventListener('click',(e)=>{
