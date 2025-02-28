@@ -58,22 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // ✅ Dropdown Menu
-  const dropdownToggle = document.getElementById('dropdownMenuButton1');
-  const dropDowns = document.getElementsByClassName('dropdownMenuButton1-dropContent');
-  if (dropdownToggle) {
-      dropdownToggle.addEventListener('click', () => {
-          for (let i = 0; i < dropDowns.length; i++) {
-              dropDowns[i].classList.toggle('show');
-          }
-      });
+  document.addEventListener("DOMContentLoaded", () => {
+    const logoutBtn = document.getElementById("Logout");
 
-      window.addEventListener('click', (e) => {
-          if (!e.target.matches('#dropdownMenuButton1')) {
-              for (let i = 0; i < dropDowns.length; i++) {
-                  dropDowns[i].classList.remove('show');
-              }
-          }
-      });
-  }
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevents default link behavior
+            alert("Logging out..."); // Placeholder for logout logic
+
+            // Redirect to login page (you can replace this with actual logout logic)
+            window.location.href = "login.html";
+        });
+    }
+});
+
 });
