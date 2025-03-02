@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login or Sign Up</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="Images/Logo3.png"> 
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/Logo3.png">
     <link rel="stylesheet" href="login.css">
-    <link rel="icon" href="./assets/favicon.png">
   </head>
   
   <body>
@@ -18,27 +17,30 @@
 
     <hr>
 
-    <div class="input-username">
-      <label for="username">Email or username</label>
-      <input type="text" id="username" placeholder="Email or username">
-    </div>
-
-    <div class="input-password">
-      <label for="username">Password</label>
-      <input type="password" id="username" placeholder="Password">
-    </div>
-
     <div>
-      <button class="login-btn">Log In</button>
+      <form action="login.php" method="POST">
+          <div class="input-username">
+              <label for="username">Email or Username</label>
+              <input type="text" id="username" name="username" placeholder="Email or Username" required>
+          </div>
+      
+          <div class="input-password">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" placeholder="Password" required>
+          </div>
+      
+          <div>
+              <button type="submit" class="login-btn">Log In</button>
+          </div>
+      </form>
+  
+      <div class="signup-text">
+          <span>Don't have an account?</span>
+          <a href="sign_up.html" class="signup-link">Sign up for Tuniverse.</a>
+      </div>
     </div>
-
-    <div class="signup-text">
-      <span>Don't have an account?</span>
-      <a href="sign_up.html" class="signup-link">Sign up for Tuniverse.</a>
-    </div>
-
-
-  </div>
+    
   </body>
 </html>
+
   

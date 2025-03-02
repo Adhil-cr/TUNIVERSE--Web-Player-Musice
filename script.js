@@ -58,18 +58,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const logoutBtn = document.getElementById("Logout");
-
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevents default link behavior
-            alert("Logging out..."); // Placeholder for logout logic
-
-            // Redirect to login page (you can replace this with actual logout logic)
-            window.location.href = "login.html";
-        });
-    }
-});
-
 });
