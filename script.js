@@ -31,31 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
       sectionOneObserver.observe(sectionOne);
   }
 
-  // ✅ Sign-Up Form
-  const emailInput = document.getElementById("email");  
-  const nextButton = document.getElementById("nextButton");
-  const passwordContainer = document.getElementById("passwordContainer");
-  const passwordInput = document.getElementById("password");
-  const togglePassword = document.getElementById("togglePassword");
-
-  if (emailInput && nextButton && passwordContainer && passwordInput && togglePassword) {
-      togglePassword.addEventListener("click", function () {
-          passwordInput.type = passwordInput.type === "password" ? "text" : "password";
-          togglePassword.innerHTML = passwordInput.type === "password" ? "&#128065;" : "👁";
-      });
-
-      emailInput.addEventListener("input", function () {
-          const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value.trim());
-          nextButton.classList.toggle("active", isValid);
-          nextButton.disabled = !isValid;
-      });
-
-      nextButton.addEventListener("click", function () {
-          if (this.classList.contains("active")) {
-              passwordContainer.style.display = "flex";
-              this.style.display = "none";
-          }
-      });
-  }
+  document.getElementById("togglePassword").addEventListener("click", function() {
+    let passwordField = document.getElementById("password");
+    passwordField.type = (passwordField.type === "password") ? "text" : "password";
+});
 
 });
+
+

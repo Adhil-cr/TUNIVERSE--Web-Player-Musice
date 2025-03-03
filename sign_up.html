@@ -15,24 +15,25 @@
 
     <hr>
 
-    <!-- Email Input -->
-    <div class="input-container">
-        <label for="username">Email</label>
-        <input type="email" id="email" placeholder="name@domain.com">
+    <div>
+        <form action="" method="">
+            <!-- Email Input -->
+            <div class="input-container">
+                <label for="username">Email</label>
+                <input type="email" id="email" placeholder="name@domain.com">
+                
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Enter your password">    
+                    <i class="eye-icon" id="togglePassword">&#128065;</i> <!-- Eye icon -->
+                </div>
+            </div>        
+            <button class="login-btn" id="submitButton">Login</button>
+        </form>
+        
+        
     </div>
     
-    <button class="login-btn" id="nextButton">Next</button>
-
-    <!-- Password Input (Initially Hidden) -->
-    <div class="password-container" id="passwordContainer">
-        <label for="password">Password</label>
-        <div class="password-wrapper">
-            <input type="password" id="password" placeholder="Enter your password">
-            <i class="eye-icon" id="togglePassword" style="cursor: pointer; color: black;">&#128065;</i> <!-- Closed Eye -->
-
-        </div>        
-        <button class="login-btn" id="submitButton">Login</button>
-    </div>
 
     <script src="script.js" defer></script>
 
