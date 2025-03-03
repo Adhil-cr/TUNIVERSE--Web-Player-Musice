@@ -16,26 +16,25 @@
     <hr>
 
     <div>
-        <form action="" method="">
-            <!-- Email Input -->
+        
+        <form action="sign_up.php" method="POST">
             <div class="input-container">
-                <label for="username">Email</label>
-                <input type="email" id="email" placeholder="name@domain.com">
-                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="name@domain.com" required>
+        
                 <label for="password">Password</label>
                 <div class="password-wrapper">
-                    <input type="password" id="password" placeholder="Enter your password">    
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>    
                     <i class="eye-icon" id="togglePassword">&#128065;</i> <!-- Eye icon -->
                 </div>
             </div>        
-            <button class="login-btn" id="submitButton">Login</button>
+            <button type="submit" class="login-btn">Sign Up</button>
         </form>
         
-        
     </div>
-    
 
-    <script src="script.js" defer></script>
+    <!-- <script src="script.js" defer></script> -->
 
 </body>
 </html>
+

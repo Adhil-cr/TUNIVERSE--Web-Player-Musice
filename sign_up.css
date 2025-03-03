@@ -94,11 +94,5 @@ input {
     border-radius: 5px;
     margin-top: 20px;
     opacity: 0.5;
-    pointer-events: none;
     transition: opacity 0.3s ease-in-out;
-}
-
-.login-btn.active {
-    opacity: 1 !important;
-    pointer-events: all !important;
 }

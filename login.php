@@ -30,7 +30,7 @@
         if(password_verify($password,$user['password']))
         {
             $_SESSION['username'] = $user['username'];
-            echo "Login successfull";
+            header("Location: index.html");
         } else {
             echo "Invalid username or password";
         }
