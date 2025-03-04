@@ -19,21 +19,27 @@
         
         <form action="sign_up.php" method="POST">
             <div class="input-container">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="name@domain.com" required>
-        
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="name@domain.com" required>
+
+                <label for="username">Username</label>
+                <div class="username">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+
                 <label for="password">Password</label>
                 <div class="password-wrapper">
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>    
                     <i class="eye-icon" id="togglePassword">&#128065;</i> <!-- Eye icon -->
                 </div>
+
             </div>        
             <button type="submit" class="login-btn">Sign Up</button>
         </form>
         
     </div>
 
-    <!-- <script src="script.js" defer></script> -->
+    <script src="script.js" defer></script> 
 
 </body>
 </html>

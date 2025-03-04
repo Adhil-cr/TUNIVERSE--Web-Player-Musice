@@ -1,44 +1,57 @@
 <?php
+// Start a session
+session_start();
 
-    //Start a session
-    session_start();
+// Database connection
+$conn = new mysqli("localhost", "root", "", "tuniverse_db");
 
-    // Database connection
-    $conn = new mysqli("localhost", "root", "", "tuniverse_db");
+// Check the connection
+if ($conn->connect_error) {
+    die("❌ Connection failed: " . $conn->connect_error);
+}
 
-    //Checking the connection
-    if($conn->connect_error)
-    {
-        die("Connection failed: ".$conn->connect_error);
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // Ensure both fields are filled
+    if (empty($_POST['username']) || empty($_POST['password'])) {
+        die("❌ Please enter both username/email and password.");
     }
 
-    // Geting the data from 'login.html'
-    $username = trim($_POST['username']);
+    // Trim and sanitize input
+    $user_input = trim($_POST['username']); // Can be either email or username
     $password = trim($_POST['password']);
 
-    // Secure the query using the prepared statement
-    $stmt = $conn->prepare("SELECT * from user_info WHERE username=?");
-    $stmt->bind_param("s", $username);
+    // Secure query using a prepared statement (check both email and username)
+    $stmt = $conn->prepare("SELECT * FROM user_info WHERE username = ? OR email = ?");
+    $stmt->bind_param("ss", $user_input, $user_input);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if($result->num_rows > 0)
-    {
+    // Check if a user is found
+    if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        // Verify the password using password_verify()
-        if(password_verify($password,$user['password']))
-        {
+        // Verify password
+        if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
             header("Location: index.html");
+            exit();
         } else {
-            echo "Invalid username or password";
+            echo "<script>
+                alert('❌ Invalid username/email or password.');
+                window.location.href = 'login.html';
+              </script>";
         }
-
     } else {
-        echo "Invalid username or password";
+        echo "<script>
+            alert('❌ Invalid username/email or password.');
+            window.location.href = 'login.html';
+          </script>";
     }
 
     $stmt->close();
-    $conn->close();
+}
+
+$conn->close();
 ?>
