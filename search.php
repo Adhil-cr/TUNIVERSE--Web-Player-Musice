@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,14 +45,14 @@
     
             <ul class="nav flex-column px-2 my-4">
               <li class="nav-item">
-                <a href="index.html" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                <a href="index.php" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                     <path
                       d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z">
                     </path>
                   </svg> Home</a>
               </li>
               <li class="nav-item">
-                <a href="search.html" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                <a href="search.php" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                     <path
                       d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z">
                     </path>
@@ -92,14 +96,7 @@
     
     
             <hr class="mx-4 mb-0 mt-2">
-    
   
-    
-    
-            <!-- Log Out Button-->
-            <a href="login.html" id="installApp" class="d-block px-4 py-2">
-              Log Out
-            </a>
            
           </nav>
         
@@ -112,7 +109,7 @@
           <!-- Start of arrows -->
 
           <div id="arrowMenu">
-            <a href="./index.html"><button><svg role="img" height="24" width="24" class="Svg-ytk21e-0 gFcOie IYDlXmBmmUKHveMzIPCF"
+            <a href="./index.php"><button><svg role="img" height="24" width="24" class="Svg-ytk21e-0 gFcOie IYDlXmBmmUKHveMzIPCF"
                 viewBox="0 0 24 24">
                 <path
                   d="M15.957 2.793a1 1 0 010 1.414L8.164 12l7.793 7.793a1 1 0 11-1.414 1.414L5.336 12l9.207-9.207a1 1 0 011.414 0z">
@@ -132,49 +129,48 @@
           <!-- End of arrows-->
         
           <div id="btnTopNav" class="d-flex">
-
+  
             <!-- Start of user profile -->
+            <?php if (!isset($_SESSION['username'])): ?>
+              <!-- Show login button if user is NOT logged in -->
+              <div id="login-button" class="dropdown ms-3">
+              <a href="login.html" class="btn btn-primary">
 
-            <div id="login-button" class="dropdown ms-3">
-                <a href="login.html" class="btn btn-primary">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right me-1" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
-                    <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                  </svg>
-                  Login
-                </a>
-              </div>
-              
-              <div id="user-dropdown" class="dropdown ms-3" style="display: none;">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  <div class="imgUsuario bg-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
-                    </svg>
-                  </div>
-                  <span id="username">Adhil C R</span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" id="Logout" href="#">Logout</a></li>
-                </ul>
-              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right me-1" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                  <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+              </svg>
+              Login
+              </a>
+             </div>
+            <?php else: ?>
+                <!-- Show profile button if user IS logged in -->
+                <div class="dropdown ms-3" id="user_bttn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="imgUsuario bg-secondary">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                      </svg>
+                    </div>
+                    <?= htmlspecialchars($_SESSION['username']); ?>
+                  </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" id="Logout" href="logout.php">Logout</a></li>
+                    </ul>
+
+             <?php endif; ?>
+
+            
           </div>
         </nav>
 
         <!-- End of user profile -->
 
-
-        <!-- feed do conteudo principal -->
         <main id="main" class="p-4">
-
-          <!-- seção inicial (header -->
           <section id="feedHeader">
-
-            
-
             <section class="feedPlaylist">
-              <h4 class="mb-3"><a><b>Recent Searches</b></a></h4>
+              <h4 class="mb-3"><a><b>Top Mixes</b></a></h4>
               
               <br>
               <ul class="playlists">

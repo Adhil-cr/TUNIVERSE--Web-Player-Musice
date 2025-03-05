@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $conn->close();
         echo "<script>
             alert('✅ Welcome to tuniverse.');
-            window.location.href = 'index.html';
+            window.location.href = 'login.html';
           </script>";
         exit();
     } else {
