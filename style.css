@@ -268,6 +268,38 @@ body,
       #121212 100%
     );
   }
+
+
+  /* 
+   Styles for the music track list and playback buttons 
+   - .music-item: Defines the layout and appearance of each track item
+   - .play-btn: Styles the play button with a minimalistic design
+*/
+.music-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #222;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.play-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+/*  */
+
+/* Image size inside the card */
+img {
+  vertical-align: middle;
+  width: 20%;
+}
   
   #principal #feed #main #feedHeader {
     max-width: 1920px;

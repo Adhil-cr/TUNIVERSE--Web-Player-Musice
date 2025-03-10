@@ -240,71 +240,69 @@ session_start();
               <br>
               <br>
               <ul class="playlists">
-                <li>
-                  <img src="assets/Malayalam.jpg">
-                  <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                      <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                      </path>
-                    </svg></button>
-                  <span>Malayalam</span>
-                  <p><br>K. J. Yesudas, K. S. Chithra and more</p>
+                <li class="album-card" data-album="Malayalam">
+                    <img src="assets/Malayalam.jpg" alt="Malayalam">
+                    <span>Malayalam</span>
+                    <p><br>K. J. Yesudas, K. S. Chithra and more</p>
+                    <button type="button" class="btn me-3 play-btn" data-src="">
+                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                      </svg>
+                    </button>
                 </li>
-  
-                <li>
-                  <img src="assets/Chill Hits - Malayalam.jpg">
-                  <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                      <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                      </path>
-                    </svg></button>
-                  <span>Chill Hits</span>
-                  <p><br>Shaan Rahman,Gopi Sundar and more</p>
+
+                <li class="album-card" data-album="Chill Hits">
+                    <img src="assets/Chill Hits - Malayalam.jpg" alt="Chill Hits">
+                    <span>Chill Hits</span>
+                    <p><br>Shaan Rahman, Gopi Sundar and more</p>
+                    <button type="button" class="btn me-3 play-btn" data-src="">
+                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                      </svg>
+                    </button>
                 </li>
-  
-                <li>
-                  <img src="assets/Moody mix.jpg">
-                  <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                      <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                      </path>
-                    </svg></button>
-                  <span>Moody Mix</span>  
+
+                <li class="album-card" data-album="Moody Mix">
+                    <img src="assets/Moody mix.jpg" alt="Moody Mix">
+                    <span>Moody Mix</span>
+                    <button type="button" class="btn me-3 play-btn" data-src="">
+                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                      </svg>
+                    </button>  
                 </li>
-  
-                <li>
-                  <img src="">
-                  <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                      <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                      </path>
-                    </svg></button>
-                  <span></span>
-                  <p><br></p>
+
+                <li class="album-card" data-album="Evergreen Tamil Love Songs">
+                    <img src="assets/Evergreen Tamil Love Songs.jpg" alt="Evergreen Tamil Love Songs">
+                    <span>Evergreen Tamil Love Songs</span>
+                    <button type="button" class="btn me-3 play-btn" data-src="">
+                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                      </svg>
+                    </button>
                 </li>
-  
-                <li>
-                  <img src="">
-                  <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                      <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                      </path>
-                    </svg></button>
-                  <span></span>
-                  <p><br></p>
+
+                <li class="album-card" data-album="Bollywood Mix">
+                    <img src="assets/Bollywood Mix.jpg" alt="Bollywood Mix">
+                    <span>Bollywood Mix</span>
+                    <button type="button" class="btn me-3 play-btn" data-src="">
+                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                      </svg>
+                    </button>
                 </li>
-  
-                <li>
-                  <img src="">
-                  <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                      <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                      </path>
-                    </svg></button>
-                  <span></span>
-                  <p><br></p>
+
+                <li class="album-card" data-album="Feel Good">
+                    <img src="assets/Feel good.jpeg" alt="Feel Good">
+                    <span>Feel Good</span>
+                    <button type="button" class="btn me-3 play-btn" data-src="">
+                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                      </svg>
+                    </button>
                 </li>
-              </ul>
+            </ul>
+
             </section>
   
             <!--recently played-->
