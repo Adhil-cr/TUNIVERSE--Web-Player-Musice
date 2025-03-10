@@ -102,13 +102,13 @@ session_start();
             <!-- Start of arrows -->
   
             <div id="arrowMenu">
-              <button><svg role="img" height="24" width="24" class="Svg-ytk21e-0 gFcOie IYDlXmBmmUKHveMzIPCF"
+              <button id="backButton" ><svg role="img" height="24" width="24" class="Svg-ytk21e-0 gFcOie IYDlXmBmmUKHveMzIPCF"
                   viewBox="0 0 24 24">
                   <path
                     d="M15.957 2.793a1 1 0 010 1.414L8.164 12l7.793 7.793a1 1 0 11-1.414 1.414L5.336 12l9.207-9.207a1 1 0 011.414 0z">
                   </path>
                 </svg></button>
-              <button><svg role="img" height="24" width="24" class="Svg-ytk21e-0 gFcOie IYDlXmBmmUKHveMzIPCF"
+              <button id="forwardButton"><svg role="img" height="24" width="24" class="Svg-ytk21e-0 gFcOie IYDlXmBmmUKHveMzIPCF"
                   viewBox="0 0 24 24">
                   <path
                     d="M8.043 2.793a1 1 0 000 1.414L15.836 12l-7.793 7.793a1 1 0 101.414 1.414L18.664 12 9.457 2.793a1 1 0 00-1.414 0z">
@@ -240,65 +240,65 @@ session_start();
               <br>
               <br>
               <ul class="playlists">
-                <li class="album-card" data-album="Malayalam">
+                <li class="album-card" data-album="Malayalam">  <!-- ✅ Matches folder -->
                     <img src="assets/Malayalam.jpg" alt="Malayalam">
                     <span>Malayalam</span>
                     <p><br>K. J. Yesudas, K. S. Chithra and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
-                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
-                      </svg>
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        </svg>
                     </button>
                 </li>
 
-                <li class="album-card" data-album="Chill Hits">
+                <li class="album-card" data-album="Chill Hits - Malayalam">  <!-- ✅ Matches folder -->
                     <img src="assets/Chill Hits - Malayalam.jpg" alt="Chill Hits">
                     <span>Chill Hits</span>
                     <p><br>Shaan Rahman, Gopi Sundar and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
-                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
-                      </svg>
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        </svg>
                     </button>
                 </li>
 
-                <li class="album-card" data-album="Moody Mix">
+                <li class="album-card" data-album="Moody mix">  <!-- ✅ Matches folder -->
                     <img src="assets/Moody mix.jpg" alt="Moody Mix">
                     <span>Moody Mix</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
-                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
-                      </svg>
-                    </button>  
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        </svg>
+                    </button>
                 </li>
 
-                <li class="album-card" data-album="Evergreen Tamil Love Songs">
+                <li class="album-card" data-album="Evergreen Tamil Love Songs">  <!-- ✅ Matches folder -->
                     <img src="assets/Evergreen Tamil Love Songs.jpg" alt="Evergreen Tamil Love Songs">
                     <span>Evergreen Tamil Love Songs</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
-                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
-                      </svg>
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        </svg>
                     </button>
                 </li>
 
-                <li class="album-card" data-album="Bollywood Mix">
+                <li class="album-card" data-album="Bollywood Mix">  <!-- ✅ Matches folder -->
                     <img src="assets/Bollywood Mix.jpg" alt="Bollywood Mix">
                     <span>Bollywood Mix</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
-                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
-                      </svg>
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        </svg>
                     </button>
                 </li>
 
-                <li class="album-card" data-album="Feel Good">
+                <li class="album-card" data-album="Feel good">  <!-- ✅ Matches folder -->
                     <img src="assets/Feel good.jpeg" alt="Feel Good">
                     <span>Feel Good</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
-                      <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
-                      </svg>
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        </svg>
                     </button>
                 </li>
             </ul>

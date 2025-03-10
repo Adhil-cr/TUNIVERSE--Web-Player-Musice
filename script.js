@@ -15,6 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
         greeting.innerHTML = hour < 12 ? welcomeTypes[0] : hour < 18 ? welcomeTypes[1] : welcomeTypes[2];
     }
 
+    // Navigate back and forward using browser history when arrow buttons are clicked.
+    document.getElementById("backButton").addEventListener("click", function () {
+        window.history.back(); // Goes back to the previous page
+    });
+
+    document.getElementById("forwardButton").addEventListener("click", function () {
+        window.history.forward(); // Moves forward to the next page
+    });
+
     // ✅ Scrolling Navbar
     const nav = document.querySelector("#topNav");
     const sectionOne = document.querySelector(".fw-bold");
@@ -162,105 +171,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
 }); 
 
-
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Enable Back and Forward Navigation
-    const backButton = document.querySelector("#arrowMenu button:first-child"); // Selects the first button (back)
-    const forwardButton = document.querySelector("#arrowMenu button:last-child"); // Selects the second button (forward)
-
-    backButton.addEventListener("click", function () {
-        window.location.href = "index.php"; // Always go back to index.php
-    });
-
-    forwardButton.addEventListener("click", function () {
-        window.history.forward(); // Go forward to the next page
-    });
-
-    // Album Click Functionality
     const albumCards = document.querySelectorAll(".album-card");
-    const mainContent = document.getElementById("main"); // Main section to update
+    const mainContent = document.getElementById("main");
 
-    // Mock album data (Replace with MySQL/AJAX if needed)
-    const albumData = {
-        "Malayalam": {
-            cover: "assets/Malayalam.jpg",
-            title: "Malayalam Hits",
-            artist: "K. J. Yesudas, K. S. Chithra"
-        },
-        "Chill Hits": {
-            cover: "assets/Chill Hits - Malayalam.jpg",
-            title: "Chill Hits",
-            artist: "Shaan Rahman, Gopi Sundar"
-        },
-        "Moody Mix": {
-            cover: "assets/Moody mix.jpg",
-            title: "Moody Mix",
-            artist: "Various Artists"
-        },
-        "Evergreen Tamil Love Songs": {
-            cover: "assets/Evergreen Tamil Love Songs.jpg",
-            title: "Evergreen Tamil Love Songs",
-            artist: "Various Artists"
-        },
-        "Bollywood Mix": {
-            cover: "assets/Bollywood Mix.jpg",
-            title: "Bollywood Mix",
-            artist: "Various Artists"
-        },
-        "Feel Good": {
-            cover: "assets/Feel good.jpeg",
-            title: "Feel Good",
-            artist: "Various Artists"
-        }
-    };
-
-    // Handle Album Click
     albumCards.forEach(card => {
         card.addEventListener("click", function () {
-            const albumName = this.getAttribute("data-album");
-            if (albumData[albumName]) {
-                const album = albumData[albumName];
+            const albumName = this.getAttribute("data-album"); // Get album name from attribute
+            
+            fetch(`fetch_tracks.php?album=${encodeURIComponent(albumName)}`) // Send album name to PHP
+                .then(response => response.json())
+                .then(tracks => {
+                    if (tracks.length > 0) {
+                        let musicDivs = "";
+                        tracks.forEach(track => {
+                            musicDivs += `
+                                <div class="music-item">
+                                    <button type="button" class="btn me-3 play-btn" data-src="${track.src}">
+                                        <svg role="img" height="20" width="20" viewBox="0 0 24 24">
+                                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" style="fill: white;"></path>
+                                        </svg>
+                                    </button>
+                                    <span>${track.name}</span>
+                                </div>
+                            `;
+                        });
 
-                // Generate six divs for music
-                let musicDivs = "";
-                for (let i = 1; i <= 6; i++) {
-                    musicDivs += `
-                        <div class="music-item">
-                            <button type="button" class="btn me-3 play-btn" data-src="">
-                                 <svg role="img" height="20" width="20" viewBox="0 0 24 24">
-                                    <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" style="fill: white;"></path>
-                                </svg>
-                            </button>
-                            <span>Track ${i}</span>
-                        </div>
-                    `;
-                }
+                        // Update Main Content with Album Details
+                        mainContent.innerHTML = `
+                            <section id="album-details">
+                                <div class="album-header">
+                                    <img src="assets/${albumName}.jpg" alt="${albumName} Album">
+                                    <div>
+                                        <h2>${albumName}</h2>
+                                        <p>Various Artists</p>
+                                    </div>
+                                </div>
+                                <div class="tracklist">
+                                    ${musicDivs}
+                                </div>
+                            </section>
+                        `;
 
-                // Update Main Content with Album Details
-                mainContent.innerHTML = `
-                    <section id="album-details">
-                        <div class="album-header">
-                            <img src="${album.cover}" alt="${album.title}">
-                            <div>
-                                <h2>${album.title}</h2>
-                                <p>${album.artist}</p>
-                            </div>
-                        </div>
-                        <div class="tracklist">
-                            ${musicDivs}
-                        </div>
-                    </section>
-                `;
-
-                // Handle Back Button (if applicable)
-                const backBtn = document.getElementById("back-btn");
-                if (backBtn) {
-                    backBtn.addEventListener("click", () => {
-                        window.location.href = "index.php"; // Redirect to index.php
-                    });
-                }
-            }
+                        // Attach Event Listeners AFTER Updating the DOM
+                        setTimeout(() => {
+                            document.querySelectorAll(".play-btn").forEach(button => {
+                                button.addEventListener("click", function () {
+                                    const audioPlayer = document.querySelector("#audioPlayer");
+                                    if (audioPlayer) {
+                                        audioPlayer.src = this.getAttribute("data-src");
+                                        audioPlayer.play();
+                                    } else {
+                                        alert("Audio player not found!");
+                                    }
+                                });
+                            });
+                        }, 100);
+                    } else {
+                        console.error("No tracks found.");
+                    }
+                })
+                .catch(error => console.error("Error fetching tracks:", error));
         });
     });
 });
