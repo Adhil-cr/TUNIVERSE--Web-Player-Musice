@@ -28,7 +28,7 @@ session_start();
           <a href="#" class="d-flex px-4">
             <img src="Images/Logo3.png" width="40" height="40" fill="currentColor" class="bi bi-spotify"
             viewBox="0 0 16 16">
-            <span class="fw-semibold ms-2" style="font-size: 1.5em;">Tuniverse</span>
+            <span class="fw-semibold ms-2" style="font-size: 1.5em;">TUNIVERSE</span>
           </a>
   
           <!-- End of logo -->
@@ -173,7 +173,7 @@ session_start();
                 <li>
                    <img src="assets/Evanda Enakku Custody.jpg" alt="Evanda Enakku Custody">
                    <span class="fw-semibold ms-3 me-auto">Evanda Enakku Custody</span>
-                  <button type="button" class="btn me-3 play-btn" data-src="music/Evanda Enakku Custody.mp3">
+                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Evanda Enakku Custody.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                         <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
                       </svg>
@@ -183,7 +183,7 @@ session_start();
                 <li>
                   <img src="assets/Oru Kathilola.jpg" alt="Oru Kathilola">
                   <span class="fw-semibold ms-3 me-auto">Oru Kathilola</span>
-                  <button type="button" class="btn me-3 play-btn" data-src="music/Oru Kathilola.mp3">
+                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Oru Kathilola.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                          <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
                       </svg>
@@ -193,7 +193,7 @@ session_start();
                 <li>
                     <img src="assets/Manwa Laage.jpg" alt="Manwa Laage">
                     <span class="fw-semibold ms-3 me-auto">Manwa Laage</span>
-                    <button type="button" class="btn me-3 play-btn" data-src="music/Manwa Laage.mp3">
+                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Manwa Laage.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                           <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
                         </svg>
@@ -203,7 +203,7 @@ session_start();
                 <li>
                   <img src="assets/Moral of the Story.jpg" alt="Moral of the Story">
                   <span class="fw-semibold ms-3 me-auto">Moral of the Story</span>
-                  <button type="button" class="btn me-3 play-btn" data-src="music/Moral of the Story.mp3">
+                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Moral of the Story.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                           <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
                       </svg>
@@ -213,7 +213,7 @@ session_start();
                 <li>
                     <img src="assets/Ajitha Hare.jpg" alt="Ajitha Hare">
                     <span class="fw-semibold ms-3 me-auto">Ajitha Hare</span>
-                    <button type="button" class="btn me-3 play-btn" data-src="music/Ajitha Hare.mp3">
+                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Ajitha Hare.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
                         </svg>
@@ -223,7 +223,7 @@ session_start();
                 <li>
                     <img src="assets/Let Her Go x Husn.jpg" alt="Let Her Go x Husn">
                     <span class="fw-semibold ms-3 me-auto">Let Her Go x Husn</span>
-                    <button type="button" class="btn me-3 play-btn" data-src="music/Let Her Go x Husn.mp3">
+                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Let Her Go x Husn.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
                         </svg>

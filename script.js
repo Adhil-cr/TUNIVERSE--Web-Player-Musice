@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Navigate back and forward using browser history when arrow buttons are clicked.
     document.getElementById("backButton").addEventListener("click", function () {
-        window.history.back(); // Goes back to the previous page
+    window.location.href = "index.php"; // Goes directly to index.php
     });
 
     document.getElementById("forwardButton").addEventListener("click", function () {
@@ -170,63 +170,52 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 }); 
-
 document.addEventListener("DOMContentLoaded", function () {
     const albumCards = document.querySelectorAll(".album-card");
     const mainContent = document.getElementById("main");
+    let audio = new Audio();
+    let currentTrackIndex = -1;
+    let isPlaying = false;
+    let currentPlayButton = null; // Track the current playing button
+
+    const playIcon = `<svg width="24" height="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path></svg>`;
+    const pauseIcon = `<svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 22h6V2H3v20zM15 2v20h6V2h-6z" fill="white"></path></svg>`;
 
     albumCards.forEach(card => {
         card.addEventListener("click", function () {
-            const albumName = this.getAttribute("data-album"); // Get album name from attribute
-            
-            fetch(`fetch_tracks.php?album=${encodeURIComponent(albumName)}`) // Send album name to PHP
+            const albumName = this.getAttribute("data-album");
+
+            fetch(`fetch_tracks.php?album=${encodeURIComponent(albumName)}`)
                 .then(response => response.json())
-                .then(tracks => {
-                    if (tracks.length > 0) {
-                        let musicDivs = "";
-                        tracks.forEach(track => {
-                            musicDivs += `
-                                <div class="music-item">
-                                    <button type="button" class="btn me-3 play-btn" data-src="${track.src}">
-                                        <svg role="img" height="20" width="20" viewBox="0 0 24 24">
-                                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" style="fill: white;"></path>
-                                        </svg>
+                .then(data => {
+                    if (data.status === "success" && data.tracks.length > 0) {
+                        let trackListHTML = "";
+
+                        data.tracks.forEach((track, index) => {
+                            trackListHTML += `
+                                <div class="music-item" data-index="${index}">
+                                    <button class="play-btn" data-src="${track.src}" data-index="${index}">
+                                        ${playIcon}
                                     </button>
-                                    <span>${track.name}</span>
+                                    <div class="track-details">
+                                        <span class="track-name">${track.name}</span>
+                                        <span class="track-author">${track.author}</span>
+                                    </div>
+                                    <span class="track-duration" id="duration-${index}">${track.duration}</span>
                                 </div>
                             `;
                         });
 
-                        // Update Main Content with Album Details
                         mainContent.innerHTML = `
                             <section id="album-details">
-                                <div class="album-header">
-                                    <img src="assets/${albumName}.jpg" alt="${albumName} Album">
-                                    <div>
-                                        <h2>${albumName}</h2>
-                                        <p>Various Artists</p>
-                                    </div>
+                                <div class="album-card">
+                                    <img src="${data.albumCover}" alt="${albumName} Cover" class="album-cover">
+                                    <p class="album-name">${albumName}</p>
                                 </div>
-                                <div class="tracklist">
-                                    ${musicDivs}
-                                </div>
+                                <div class="tracklist">${trackListHTML}</div>
                             </section>
                         `;
-
-                        // Attach Event Listeners AFTER Updating the DOM
-                        setTimeout(() => {
-                            document.querySelectorAll(".play-btn").forEach(button => {
-                                button.addEventListener("click", function () {
-                                    const audioPlayer = document.querySelector("#audioPlayer");
-                                    if (audioPlayer) {
-                                        audioPlayer.src = this.getAttribute("data-src");
-                                        audioPlayer.play();
-                                    } else {
-                                        alert("Audio player not found!");
-                                    }
-                                });
-                            });
-                        }, 100);
+                        attachEventListeners(data.tracks);
                     } else {
                         console.error("No tracks found.");
                     }
@@ -234,4 +223,60 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch(error => console.error("Error fetching tracks:", error));
         });
     });
+
+    function attachEventListeners(tracks) {
+        document.querySelectorAll(".play-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const trackSrc = this.getAttribute("data-src");
+                const trackIndex = parseInt(this.getAttribute("data-index"));
+
+                if (currentTrackIndex !== trackIndex) {
+                    if (currentPlayButton) {
+                        currentPlayButton.innerHTML = playIcon; // Reset previous button
+                    }
+                    audio.src = trackSrc;
+                    audio.play().catch(error => console.error("Playback error:", error));
+                    isPlaying = true;
+                    currentTrackIndex = trackIndex;
+                    currentPlayButton = this;
+                    this.innerHTML = pauseIcon;
+                } else {
+                    if (isPlaying) {
+                        audio.pause();
+                        isPlaying = false;
+                        this.innerHTML = playIcon;
+                    } else {
+                        audio.play();
+                        isPlaying = true;
+                        this.innerHTML = pauseIcon;
+                    }
+                }
+            });
+        });
+
+        audio.addEventListener("ended", function () {
+            if (currentPlayButton) {
+                currentPlayButton.innerHTML = playIcon;
+            }
+            isPlaying = false;
+        });
+
+        fetchDurations(tracks);
+    }
+
+    function fetchDurations(tracks) {
+        tracks.forEach((track, index) => {
+            let tempAudio = new Audio(track.src);
+            tempAudio.addEventListener("loadedmetadata", function () {
+                let duration = formatTime(tempAudio.duration);
+                document.getElementById(`duration-${index}`).textContent = duration;
+            });
+        });
+    }
+
+    function formatTime(seconds) {
+        let mins = Math.floor(seconds / 60);
+        let secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    }
 });
