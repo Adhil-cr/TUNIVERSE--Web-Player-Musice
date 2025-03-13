@@ -867,7 +867,8 @@ img {
   }
   
 
-  /* styling for the dynamic loading page  */
+  /* -------------------------- styling for the dynamic loading page ---------------------------- */
+  
   .music-item {
     display: flex;
     align-items: center;
@@ -988,3 +989,59 @@ img {
   font-weight: bold;
   color: white;
 }
+
+
+/* Add hover effect */
+.music-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+/* Highlight currently playing song */
+.playing {
+  background-color: rgba(255, 50, 50, 0.2); /* Light red background */
+  color: white;
+  font-weight: bold;
+}
+      /* Styling the like button and the three dot's inside the Dynamicaly loaded page */
+      .like-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    
+    .like-btn.liked {
+        color: red;
+    }
+    
+    .menu-container {
+        display: inline-block;
+        position: relative;
+    }
+    
+    .menu-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    
+    .menu-dropdown {
+        position: absolute;
+        right: 0;
+        background: #222;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    
+    .menu-dropdown button {
+        background: none;
+        border: none;
+        color: white;
+        padding: 5px;
+        cursor: pointer;
+    }
+    

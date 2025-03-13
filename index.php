@@ -293,7 +293,7 @@ session_start();
                 </li>
 
                 <li class="album-card" data-album="Feel good">  <!-- ✅ Matches folder -->
-                    <img src="assets/Feel good.jpeg" alt="Feel Good">
+                    <img src="assets/Feel good.jpg" alt="Feel Good">
                     <span>Feel Good</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -393,9 +393,6 @@ session_start();
         <div id="audioBar" class="p-3 d-flex justify-content-between">
   
           <div id="musicaPlay"></div>
-  
-          
-  
           <div id="caixaCentral" class="d-flex flex-column align-items-center">
   
             <div id="caixaSetas" class="d-flex align-items-center">

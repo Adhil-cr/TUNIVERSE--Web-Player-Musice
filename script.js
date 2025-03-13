@@ -170,16 +170,42 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
 }); 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const albumCards = document.querySelectorAll(".album-card");
     const mainContent = document.getElementById("main");
+
     let audio = new Audio();
     let currentTrackIndex = -1;
     let isPlaying = false;
-    let currentPlayButton = null; // Track the current playing button
+    let currentPlayButton = null;
 
     const playIcon = `<svg width="24" height="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path></svg>`;
     const pauseIcon = `<svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 22h6V2H3v20zM15 2v20h6V2h-6z" fill="white"></path></svg>`;
+    const fplayIcon = `<svg width="24" height="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="black"></path></svg>`;
+    const fpauseIcon = `<svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 22h6V2H3v20zM15 2v20h6V2h-6z" fill="black"></path></svg>`;
+    
+    // Footer Elements
+    const footerPlayPause = document.querySelector(".playPause");
+    const prevButton = document.querySelector(".anterior");
+    const nextButton = document.querySelector(".proximo");
+    const progressBar = document.querySelector("#barraDeProgresso input[type='range']");
+    const currentTimeDisplay = document.querySelector("#barraDeProgresso small:first-child");
+    const durationDisplay = document.querySelector("#barraDeProgresso small:last-child");
+    const musicDisplay = document.getElementById("musicaPlay");
+    const volumeSlider = document.querySelector("#volume input[type='range']");
+    const songItems = document.querySelectorAll(".music-item");
+
+    songItems.forEach((item) => {
+        item.addEventListener("click", function () {
+            // Remove "playing" class from all items
+            document.querySelectorAll(".music-item").forEach(el => el.classList.remove("playing"));
+
+            // Add "playing" class to the clicked song
+            item.classList.add("playing");
+        });
+    });
 
     albumCards.forEach(card => {
         card.addEventListener("click", function () {
@@ -192,18 +218,32 @@ document.addEventListener("DOMContentLoaded", function () {
                         let trackListHTML = "";
 
                         data.tracks.forEach((track, index) => {
-                            trackListHTML += `
-                                <div class="music-item" data-index="${index}">
-                                    <button class="play-btn" data-src="${track.src}" data-index="${index}">
-                                        ${playIcon}
-                                    </button>
-                                    <div class="track-details">
-                                        <span class="track-name">${track.name}</span>
-                                        <span class="track-author">${track.author}</span>
-                                    </div>
-                                    <span class="track-duration" id="duration-${index}">${track.duration}</span>
-                                </div>
-                            `;
+                            trackListHTML += `<div class="music-item" data-index="${index}">
+                                                <button class="play-btn" data-src="${track.src}" data-index="${index}">
+                                                    ${playIcon}
+                                                </button>
+                                                <div class="track-details">
+                                                    <span class="track-name">${track.name}</span>
+                                                    <span class="track-author">${track.author}</span>
+                                                </div>
+                                                <span class="track-duration" id="duration-${index}">Loading...</span>
+                                                
+                                                <!-- Like Button -->
+                                                <button class="like-btn" data-index="${index}">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24">
+                                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white"></path>
+                                                    </svg>
+                                                </button>
+
+                                                <!-- Three-dot Menu -->
+                                                <div class="menu-container">
+                                                    <button class="menu-btn">⋮</button>
+                                                    <div class="menu-dropdown" style="display: none;">
+                                                        <button class="add-to-playlist" data-index="${index}">Add to Playlist</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        `;
                         });
 
                         mainContent.innerHTML = `
@@ -215,6 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <div class="tracklist">${trackListHTML}</div>
                             </section>
                         `;
+
                         attachEventListeners(data.tracks);
                     } else {
                         console.error("No tracks found.");
@@ -224,59 +265,278 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    function attachEventListeners(tracks) {
+    function attachEventListeners(tracks) { 
         document.querySelectorAll(".play-btn").forEach(button => {
             button.addEventListener("click", function () {
                 const trackSrc = this.getAttribute("data-src");
                 const trackIndex = parseInt(this.getAttribute("data-index"));
 
                 if (currentTrackIndex !== trackIndex) {
-                    if (currentPlayButton) {
-                        currentPlayButton.innerHTML = playIcon; // Reset previous button
-                    }
+                    stopCurrentTrack(); // Stop previous track before playing new one
                     audio.src = trackSrc;
                     audio.play().catch(error => console.error("Playback error:", error));
                     isPlaying = true;
                     currentTrackIndex = trackIndex;
                     currentPlayButton = this;
                     this.innerHTML = pauseIcon;
+
+                    updateFooter(tracks[trackIndex]);
                 } else {
-                    if (isPlaying) {
-                        audio.pause();
-                        isPlaying = false;
-                        this.innerHTML = playIcon;
-                    } else {
-                        audio.play();
-                        isPlaying = true;
-                        this.innerHTML = pauseIcon;
-                    }
+                    togglePlayPause(this);
                 }
             });
         });
 
-        audio.addEventListener("ended", function () {
-            if (currentPlayButton) {
-                currentPlayButton.innerHTML = playIcon;
+        audio.addEventListener("loadedmetadata", function () {
+            if (currentTrackIndex !== -1) {
+                document.getElementById(`duration-${currentTrackIndex}`).textContent = formatTime(audio.duration);
             }
-            isPlaying = false;
         });
 
+        audio.addEventListener("ended", function () {
+            nextTrack(tracks);
+        });
+
+        audio.addEventListener("timeupdate", function () {
+            if (!isNaN(audio.duration) && audio.duration > 0) {
+                progressBar.value = (audio.currentTime / audio.duration) * 100;
+                currentTimeDisplay.textContent = formatTime(audio.currentTime);
+                durationDisplay.textContent = formatTime(audio.duration);
+            }
+        });
+
+        progressBar.addEventListener("input", function () {
+            audio.currentTime = (this.value / 100) * audio.duration;
+        });
+
+        footerPlayPause.addEventListener("click", function () {
+            if (currentPlayButton) {
+                togglePlayPause(currentPlayButton);
+            } else if (currentTrackIndex !== -1) {
+                let trackButton = document.querySelector(`.play-btn[data-index="${currentTrackIndex}"]`);
+                if (trackButton) togglePlayPause(trackButton);
+            }
+        });
+
+        prevButton.addEventListener("click", function () {
+            previousTrack(tracks);
+        });
+
+        nextButton.addEventListener("click", function () {
+            nextTrack(tracks);
+        });
+
+        volumeSlider.addEventListener("input", function () {
+            let volumeValue = this.value / 100; // Convert range value (0-100) to 0-1
+            audio.volume = volumeValue;
+        });
+        
         fetchDurations(tracks);
+    }
+
+    function stopCurrentTrack() {
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+        }
+
+        if (currentPlayButton) {
+            currentPlayButton.innerHTML = fplayIcon;
+        }
+    }
+
+    function togglePlayPause(button) {
+        if (!button) return;
+
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            button.innerHTML = playIcon;
+            footerPlayPause.innerHTML = fplayIcon;
+        } else {
+            audio.play().then(() => {
+                isPlaying = true;
+                button.innerHTML = pauseIcon;
+                footerPlayPause.innerHTML = fpauseIcon;
+
+                document.querySelectorAll(".play-btn").forEach(btn => {
+                    if (btn !== button) btn.innerHTML = playIcon;
+                });
+
+                currentPlayButton = button;
+            }).catch(error => console.error("Playback error:", error));
+        }
+    }
+
+    function previousTrack(tracks) {
+        if (currentTrackIndex > 0) {
+            currentTrackIndex--;
+            playTrack(tracks[currentTrackIndex]);
+        }
+    }
+
+    function nextTrack(tracks) {
+        if (currentTrackIndex < tracks.length - 1) {
+            currentTrackIndex++;
+            playTrack(tracks[currentTrackIndex]);
+        } else {
+            stopCurrentTrack();
+        }
+    }
+
+    function playTrack(track) {
+        if (!track || !track.src) return;
+
+        stopCurrentTrack();
+
+        audio.src = track.src;
+        audio.load();
+        audio.play().then(() => {
+            isPlaying = true;
+            updateFooter(track);
+
+            document.querySelectorAll(".play-btn").forEach(btn => btn.innerHTML = playIcon);
+
+            currentPlayButton = document.querySelector(`.play-btn[data-index="${currentTrackIndex}"]`);
+            if (currentPlayButton) currentPlayButton.innerHTML = pauseIcon;
+
+            footerPlayPause.innerHTML = fpauseIcon;
+        }).catch(error => console.error("Playback error:", error));
+    }
+
+    function updateFooter(track) {
+        musicDisplay.innerHTML = `<p>${track.name} - ${track.author}</p>`;
     }
 
     function fetchDurations(tracks) {
         tracks.forEach((track, index) => {
             let tempAudio = new Audio(track.src);
             tempAudio.addEventListener("loadedmetadata", function () {
-                let duration = formatTime(tempAudio.duration);
-                document.getElementById(`duration-${index}`).textContent = duration;
+                document.getElementById(`duration-${index}`).textContent = formatTime(tempAudio.duration);
             });
         });
     }
 
     function formatTime(seconds) {
+        if (isNaN(seconds)) return "0:00";
         let mins = Math.floor(seconds / 60);
         let secs = Math.floor(seconds % 60);
         return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let audio = new Audio();
+    let isPlaying = false;
+    let currentTrackIndex = -1;
+    let currentPlayButton = null;
+
+    // Restore playback state if available
+    if (localStorage.getItem("currentTrack")) {
+        let savedTrack = JSON.parse(localStorage.getItem("currentTrack"));
+        audio.src = savedTrack.src;
+        currentTrackIndex = savedTrack.index;
+        isPlaying = savedTrack.isPlaying;
+        document.getElementById("musicaPlay").innerHTML = `${savedTrack.name} - ${savedTrack.author}`;
+    }
+
+    if (isPlaying) {
+        audio.play();
+    }
+
+    document.querySelectorAll(".play-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const trackSrc = this.getAttribute("data-src");
+            const trackIndex = parseInt(this.getAttribute("data-index"));
+            const trackName = this.closest(".music-item").querySelector(".track-name").textContent;
+            const trackAuthor = this.closest(".music-item").querySelector(".track-author").textContent;
+
+            if (currentTrackIndex !== trackIndex) {
+                stopCurrentTrack();
+                audio.src = trackSrc;
+                audio.play().catch(error => console.error("Playback error:", error));
+                isPlaying = true;
+                currentTrackIndex = trackIndex;
+                currentPlayButton = this;
+                updateFooter(trackName, trackAuthor);
+                saveTrackState(trackSrc, trackIndex, trackName, trackAuthor);
+            } else {
+                togglePlayPause(this);
+            }
+        });
+    });
+
+    function togglePlayPause(button) {
+        if (!button) return;
+
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            button.innerHTML = playIcon;
+        } else {
+            audio.play().then(() => {
+                isPlaying = true;
+                button.innerHTML = pauseIcon;
+                currentPlayButton = button;
+            }).catch(error => console.error("Playback error:", error));
+        }
+    }
+
+    function stopCurrentTrack() {
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+        }
+    }
+
+    function updateFooter(name, author) {
+        document.getElementById("musicaPlay").innerHTML = `<p>${name} - ${author}</p>`;
+    }
+
+    function saveTrackState(src, index, name, author) {
+        localStorage.setItem("currentTrack", JSON.stringify({
+            src: src,
+            index: index,
+            name: name,
+            author: author,
+            isPlaying: isPlaying
+        }));
+    }
+
+    window.addEventListener("beforeunload", function () {
+        localStorage.setItem("isPlaying", isPlaying);
+    });
+
+    audio.addEventListener("ended", function () {
+        isPlaying = false;
+        localStorage.removeItem("currentTrack");
+    });
+
+    document.querySelector(".playPause").addEventListener("click", function () {
+        if (currentPlayButton) {
+            togglePlayPause(currentPlayButton);
+        }
+    });
+
+    document.querySelector(".anterior").addEventListener("click", function () {
+        if (currentTrackIndex > 0) {
+            currentTrackIndex--;
+            let trackButton = document.querySelector(`.play-btn[data-index="${currentTrackIndex}"]`);
+            if (trackButton) trackButton.click();
+        }
+    });
+
+    document.querySelector(".proximo").addEventListener("click", function () {
+        let trackButton = document.querySelector(`.play-btn[data-index="${currentTrackIndex + 1}"]`);
+        if (trackButton) {
+            currentTrackIndex++;
+            trackButton.click();
+        }
+    });
+
+    document.querySelector("#volume input").addEventListener("input", function () {
+        audio.volume = this.value / 100;
+    });
+});
+
