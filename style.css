@@ -725,7 +725,7 @@ img {
     width: 35px;
     height: 35px;
     border-radius: 24px;
-    background-color: #fff;
+    background-color: #dd6165;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1044,4 +1044,9 @@ img {
         padding: 5px;
         cursor: pointer;
     }
-    
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #9e9c9c;
+      font-weight: bolder;
+  }

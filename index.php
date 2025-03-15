@@ -46,13 +46,6 @@ session_start();
                 </svg> Home</a>
             </li>
             <li class="nav-item">
-              <a href="search.php" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                  <path
-                    d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z">
-                  </path>
-                </svg> Search</a>
-            </li>
-            <li class="nav-item">
               <a href="#" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                   <path
                     d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z">
@@ -175,7 +168,7 @@ session_start();
                    <span class="fw-semibold ms-3 me-auto">Evanda Enakku Custody</span>
                   <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Evanda Enakku Custody.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                       </svg>
                   </button>
                 </li>
@@ -185,7 +178,7 @@ session_start();
                   <span class="fw-semibold ms-3 me-auto">Oru Kathilola</span>
                   <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Oru Kathilola.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                         <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                         <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                       </svg>
                   </button>
                 </li>
@@ -195,7 +188,7 @@ session_start();
                     <span class="fw-semibold ms-3 me-auto">Manwa Laage</span>
                     <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Manwa Laage.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                          <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                          <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -205,7 +198,7 @@ session_start();
                   <span class="fw-semibold ms-3 me-auto">Moral of the Story</span>
                   <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Moral of the Story.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                          <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                          <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                       </svg>
                   </button>
                 </li>
@@ -215,7 +208,7 @@ session_start();
                     <span class="fw-semibold ms-3 me-auto">Ajitha Hare</span>
                     <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Ajitha Hare.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -225,7 +218,7 @@ session_start();
                     <span class="fw-semibold ms-3 me-auto">Let Her Go x Husn</span>
                     <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Let Her Go x Husn.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -246,7 +239,7 @@ session_start();
                     <p><br>K. J. Yesudas, K. S. Chithra and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -257,7 +250,7 @@ session_start();
                     <p><br>Shaan Rahman, Gopi Sundar and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -267,7 +260,7 @@ session_start();
                     <span>Moody Mix</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -277,7 +270,7 @@ session_start();
                     <span>Evergreen Tamil Love Songs</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -287,7 +280,7 @@ session_start();
                     <span>Bollywood Mix</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -297,7 +290,7 @@ session_start();
                     <span>Feel Good</span>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
                     </button>
                 </li>
@@ -315,7 +308,7 @@ session_start();
                   <img src="">
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
                   <span></span>
@@ -326,7 +319,7 @@ session_start();
                   <img src="">
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
                   <span>song titile</span>
@@ -337,7 +330,7 @@ session_start();
                   <img src="">
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
                   <span></span>
@@ -348,7 +341,7 @@ session_start();
                   <img src="">
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
                   <span></span>
@@ -359,7 +352,7 @@ session_start();
                   <img src="">
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
                   <span></span>
@@ -370,7 +363,7 @@ session_start();
                   <img src="">
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
                   <span></span>
@@ -396,30 +389,30 @@ session_start();
           <div id="caixaCentral" class="d-flex flex-column align-items-center">
   
             <div id="caixaSetas" class="d-flex align-items-center">
-              <button type="button" class="icones anterior"><svg role="img" height="16" width="16" viewBox="0 0 16 16">
+              <button type="button" class="icones anterior">
+                <svg role="img" height="16" width="16" viewBox="0 0 16 16">
                   <path
                     d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z">
                   </path>
-                </svg></button>
+                </svg>
+              </button>
   
-              <button type="button" class="btn playPause"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+              <button type="button" class="btn playPause">
+                <svg role="img" height="24" width="24" viewBox="0 0 24 24" fill="white">
                   <path
                     d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
                   </path>
-                </svg></button>
+                </svg>
+              </button>
   
-              <button type="button" class="icones proximo"><svg role="img" height="16" width="16" viewBox="0 0 16 16">
+              <button type="button" class="icones proximo">
+                <svg role="img" height="16" width="16" viewBox="0 0 16 16">
                   <path
                     d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z">
                   </path>
-                </svg></button>
+                </svg>
+              </button>
   
-              <button type="button" class="icones repetir"><svg onClick="enabledisable(this)" role="img" height="16"
-                  width="16" viewBox="0 0 16 16">
-                  <path
-                    d="M0 4.75A3.75 3.75 0 013.75 1h8.5A3.75 3.75 0 0116 4.75v5a3.75 3.75 0 01-3.75 3.75H9.81l1.018 1.018a.75.75 0 11-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 111.06 1.06L9.811 12h2.439a2.25 2.25 0 002.25-2.25v-5a2.25 2.25 0 00-2.25-2.25h-8.5A2.25 2.25 0 001.5 4.75v5A2.25 2.25 0 003.75 12H5v1.5H3.75A3.75 3.75 0 010 9.75v-5z">
-                  </path>
-                </svg></button>
             </div>
   
             <div id="barraDeProgresso"><small>00:00</small><input type="range"><small>00:00</small></div>
