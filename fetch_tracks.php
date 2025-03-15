@@ -26,8 +26,11 @@ if ($album !== "") {
                 $encodedFile = str_replace(" ", "%20", $file);
                 $filePath = $baseURL . $musicDir . $encodedFile;
                 
-                $songName = pathinfo($file, PATHINFO_FILENAME);
-                $author = "Unknown Artist";
+                // Extract song name and artist from file name
+                $fileName = pathinfo($file, PATHINFO_FILENAME);
+                $parts = explode(" - ", $fileName); // Split by " - "
+                $songName = $parts[1] ?? $fileName; // Default to full file name if no artist is found
+                $author = $parts[0] ?? "Unknown Artist"; // Default to "Unknown Artist" if no artist is found
 
                 $tracks[] = [
                     "name" => $songName,

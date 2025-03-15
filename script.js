@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         element.style.fill = (element.style.fill !== "rgb(29, 185, 84)") ? "#1db954" : "#fff";
     }
 
-
     // ✅ Greetings Script
     const greeting = document.getElementById("greeting");
     if (greeting) {
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Navigate back and forward using browser history when arrow buttons are clicked.
     document.getElementById("backButton").addEventListener("click", function () {
-    window.location.href = "index.php"; // Goes directly to index.php
+        window.location.href = "index.php"; // Goes directly to index.php
     });
 
     document.getElementById("forwardButton").addEventListener("click", function () {
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
             passwordField.type = (passwordField.type === "password") ? "text" : "password";
         });
     }
-        
 });
 
 
@@ -67,9 +65,77 @@ document.addEventListener("DOMContentLoaded", function () {
     const musicDisplay = document.getElementById("musicaPlay");
     const volumeSlider = document.querySelector("#volume input[type='range']");
 
-    // ✅ Debugging: Check if buttons exist
-    if (!prevButton || !nextButton) {
-        console.error("Previous or Next button not found!");
+    // ✅ Restore Playback State from localStorage
+    const savedState = JSON.parse(localStorage.getItem("playbackState"));
+    if (savedState) {
+        audio.src = savedState.src;
+        audio.currentTime = savedState.currentTime || 0;
+        audio.volume = savedState.volume || 1; // Restore volume level
+        if (savedState.isPlaying) {
+            audio.play().catch(error => console.error("Playback error:", error));
+            isPlaying = true;
+            footerPlayPause.innerHTML = pauseIcon;
+        } else {
+            isPlaying = false;
+            footerPlayPause.innerHTML = playIcon;
+        }
+        updateFooter({ name: savedState.trackName, author: savedState.trackAuthor });
+
+        // Restore volume slider position
+        if (volumeSlider) {
+            volumeSlider.value = savedState.volume * 100;
+        }
+    }
+
+    // ✅ Save Playback State to localStorage
+    function savePlaybackState() {
+        const playbackState = {
+            src: audio.src,
+            currentTime: audio.currentTime,
+            isPlaying: isPlaying,
+            trackName: musicDisplay.querySelector("#songTitle")?.textContent || "",
+            trackAuthor: musicDisplay.querySelector("#songAuthor")?.textContent || "",
+            volume: audio.volume, // Save volume level
+        };
+        localStorage.setItem("playbackState", JSON.stringify(playbackState));
+    }
+
+    // ✅ Clear Playback State from localStorage
+    function clearPlaybackState() {
+        localStorage.removeItem("playbackState");
+    }
+
+    // ✅ Reset Playback State
+    function resetPlaybackState() {
+        audio.pause(); // Stop the audio
+        audio.src = ""; // Clear the audio source
+        audio.currentTime = 0; // Reset playback position
+        audio.volume = 1; // Reset volume to default
+        isPlaying = false; // Update playback state
+        currentTrackIndex = -1; // Reset track index
+        currentPlayButton = null; // Reset play button
+
+        // Reset UI elements
+        if (footerPlayPause) footerPlayPause.innerHTML = playIcon;
+        if (musicDisplay) musicDisplay.innerHTML = "";
+        if (progressBar) progressBar.value = 0;
+        if (currentTimeDisplay) currentTimeDisplay.textContent = "00:00";
+        if (durationDisplay) durationDisplay.textContent = "00:00";
+        if (volumeSlider) volumeSlider.value = 100;
+
+        // Clear playback state from localStorage
+        clearPlaybackState();
+    }
+
+    // ✅ Handle Page Unload
+    window.addEventListener("beforeunload", savePlaybackState);
+
+    // ✅ Logout Event Listener
+    const logoutButton = document.getElementById("Logout");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", function () {
+            resetPlaybackState(); // Stop and reset playback on logout
+        });
     }
 
     // ✅ Previous Track Function
@@ -104,7 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
             const trackSrc = this.getAttribute("data-src");
             const trackName = this.closest("li").querySelector("span").textContent;
-            playTrack({ src: trackSrc, name: trackName }, this);
+            const trackAuthor = this.closest("li").querySelector(".track-author")?.textContent || "Unknown Artist";
+            playTrack({ src: trackSrc, name: trackName, author: trackAuthor }, this);
         });
     });
 
@@ -197,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Update Footer
     function updateFooter(track) {
-        musicDisplay.innerHTML = `<p>${track.name}</p>`;
+        musicDisplay.innerHTML = `<p><span id="songTitle">${track.name}</span> By <span id="songAuthor">${track.author}</span></p>`;
     }
 
     // ✅ Footer Play/Pause Control
@@ -239,7 +306,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Volume Control
     volumeSlider.addEventListener("input", function () {
-        audio.volume = this.value / 100;
+        const volume = this.value / 100;
+        audio.volume = volume;
+        savePlaybackState(); // Save volume level to localStorage
     });
 
     // ✅ Format Time Helper
@@ -248,4 +317,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const secs = Math.floor(seconds % 60);
         return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
     }
+
+    // ✅ Clear Playback State on Song End
+    audio.addEventListener("ended", function () {
+        clearPlaybackState();
+    });
 });

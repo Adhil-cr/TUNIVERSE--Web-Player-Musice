@@ -258,6 +258,7 @@ session_start();
                 <li class="album-card" data-album="Moody mix">  <!-- ✅ Matches folder -->
                     <img src="assets/Moody mix.jpg" alt="Moody Mix">
                     <span>Moody Mix</span>
+                    <p><br>Ed Sheeran, David Kushner and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
@@ -267,7 +268,8 @@ session_start();
 
                 <li class="album-card" data-album="Evergreen Tamil Love Songs">  <!-- ✅ Matches folder -->
                     <img src="assets/Evergreen Tamil Love Songs.jpg" alt="Evergreen Tamil Love Songs">
-                    <span>Evergreen Tamil Love Songs</span>
+                    <span>Tamil Love Songs</span>
+                    <p><br>S. P. Balasubrahmanyam, Sid Sriramand and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
@@ -278,6 +280,7 @@ session_start();
                 <li class="album-card" data-album="Bollywood Mix">  <!-- ✅ Matches folder -->
                     <img src="assets/Bollywood Mix.jpg" alt="Bollywood Mix">
                     <span>Bollywood Mix</span>
+                    <p><br>Arijit Singh, Shreya Ghoshal and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
@@ -288,6 +291,7 @@ session_start();
                 <li class="album-card" data-album="Feel good">  <!-- ✅ Matches folder -->
                     <img src="assets/Feel good.jpg" alt="Feel Good">
                     <span>Feel Good</span>
+                    <p><br>Gowry Lekshm, Shaan Rahman and more</p>
                     <button type="button" class="btn me-3 play-btn" data-src="">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
@@ -363,7 +367,7 @@ session_start();
                   <img src="">
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
-                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
+                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white" >
                       </path>
                     </svg></button>
                   <span></span>
@@ -384,56 +388,41 @@ session_start();
       </div>
       <div id="footer">
         <div id="audioBar" class="p-3 d-flex justify-content-between">
-  
-          <div id="musicaPlay"></div>
-          <div id="caixaCentral" class="d-flex flex-column align-items-center">
-  
-            <div id="caixaSetas" class="d-flex align-items-center">
-              <button type="button" class="icones anterior">
-                <svg role="img" height="16" width="16" viewBox="0 0 16 16">
-                  <path
-                    d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z">
-                  </path>
-                </svg>
-              </button>
-  
-              <button type="button" class="btn playPause">
-                <svg role="img" height="24" width="24" viewBox="0 0 24 24" fill="white">
-                  <path
-                    d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                  </path>
-                </svg>
-              </button>
-  
-              <button type="button" class="icones proximo">
-                <svg role="img" height="16" width="16" viewBox="0 0 16 16">
-                  <path
-                    d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z">
-                  </path>
-                </svg>
-              </button>
-  
-            </div>
-  
-            <div id="barraDeProgresso"><small>00:00</small><input type="range"><small>00:00</small></div>
-          </div>
-  
-  
-          <div id="configAudio" class="d-flex align-items-center">
-            
-            <div id="volume">
-              <button type="button" class="icones outrosDispositivos"><svg role="presentation" height="16" width="16"
-                  aria-label="Volume médio" id="volume-icon" viewBox="0 0 16 16">
-                  <path
-                    d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 000-8.474v1.65a2.999 2.999 0 010 5.175v1.649z">
-                  </path>
-                </svg></button>
-              <input type="range">
-            </div>
-            
-          </div>
+        <div id="musicaPlay">
+            <p><span id="songTitle"></span> by <span id="songAuthor"></span></p>
         </div>
-      </div>
+        <div id="caixaCentral" class="d-flex flex-column align-items-center">
+            <div id="caixaSetas" class="d-flex align-items-center">
+                <button type="button" class="icones anterior">
+                    <svg role="img" height="16" width="16" viewBox="0 0 16 16">
+                        <path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path>
+                    </svg>
+                </button>
+                <button type="button" class="btn playPause">
+                    <svg role="img" height="24" width="24" viewBox="0 0 24 24" fill="white">
+                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                    </svg>
+                </button>
+                <button type="button" class="icones proximo">
+                    <svg role="img" height="16" width="16" viewBox="0 0 16 16">
+                        <path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="barraDeProgresso"><small>00:00</small><input type="range"><small>00:00</small></div>
+        </div>
+        <div id="configAudio" class="d-flex align-items-center">
+            <div id="volume">
+                <button type="button" class="icones outrosDispositivos">
+                    <svg role="presentation" height="16" width="16" aria-label="Volume médio" id="volume-icon" viewBox="0 0 16 16">
+                        <path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 000-8.474v1.65a2.999 2.999 0 010 5.175v1.649z"></path>
+                    </svg>
+                </button>
+                <input type="range">
+            </div>
+        </div>
+    </div>
+</div>
     </div>
   
   <script src="script.js" defer></script>
