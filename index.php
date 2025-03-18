@@ -65,8 +65,8 @@ session_start();
               </div>
               Create Playlist
             </button>
-  
-            <button>
+
+            <button id="likedSongsBtn">
               <div class="heart_bttn">
                 <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
                   <path
@@ -76,6 +76,7 @@ session_start();
               </div>
               Liked Songs
             </button>
+
           </div>
   
           <!-- End of side bar-->
@@ -382,49 +383,64 @@ session_start();
           </main>
         </div>
       </div>
-  
-      <div id="mobiPlay">
-        <button type="button" id="mobibtn"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-            </path>
-          </svg></button>
-      </div>
+
       <div id="footer">
         <div id="audioBar" class="p-3 d-flex justify-content-between">
-        <div id="musicaPlay">
-            <p><span id="songTitle"></span> by <span id="songAuthor"></span></p>
-        </div>
-        <div id="caixaCentral" class="d-flex flex-column align-items-center">
-            <div id="caixaSetas" class="d-flex align-items-center">
-                <button type="button" class="icones anterior">
-                    <svg role="img" height="16" width="16" viewBox="0 0 16 16">
-                        <path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path>
-                    </svg>
-                </button>
-                <button type="button" class="btn playPause">
-                    <svg role="img" height="24" width="24" viewBox="0 0 24 24" fill="white">
-                        <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
-                    </svg>
-                </button>
-                <button type="button" class="icones proximo">
-                    <svg role="img" height="16" width="16" viewBox="0 0 16 16">
-                        <path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path>
-                    </svg>
-                </button>
+            <div id="musicaPlay">
+                <p><span id="songTitle"></span> by <span id="songAuthor"></span></p>
             </div>
-            <div id="barraDeProgresso"><small>00:00</small><input type="range"><small>00:00</small></div>
-        </div>
-        <div id="configAudio" class="d-flex align-items-center">
-            <div id="volume">
-                <button type="button" class="icones outrosDispositivos">
-                    <svg role="presentation" height="16" width="16" aria-label="Volume médio" id="volume-icon" viewBox="0 0 16 16">
-                        <path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 000-8.474v1.65a2.999 2.999 0 010 5.175v1.649z"></path>
+            
+            <div id="caixaCentral" class="d-flex flex-column align-items-center">
+                <div id="caixaSetas" class="d-flex align-items-center">
+                    <button type="button" class="icones anterior">
+                        <svg role="img" height="16" width="16" viewBox="0 0 16 16">
+                            <path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path>
+                        </svg>
+                    </button>
+                    <button type="button" class="btn playPause">
+                        <svg role="img" height="24" width="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path>
+                        </svg>
+                    </button>
+                    <button type="button" class="icones proximo">
+                        <svg role="img" height="16" width="16" viewBox="0 0 16 16">
+                            <path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="barraDeProgresso"><small>00:00</small><input type="range"><small>00:00</small></div>
+            </div>
+            <div id="configAudio" class="d-flex align-items-center">
+                <div id="volume">
+                    <button type="button" class="icones outrosDispositivos">
+                        <svg role="presentation" height="16" width="16" aria-label="Volume médio" id="volume-icon" viewBox="0 0 16 16">
+                            <path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 000-8.474v1.65a2.999 2.999 0 010 5.175v1.649z"></path>
+                        </svg>
+                    </button>
+                    <input type="range">
+                </div>
+                <!-- Add the "+" button for liked songs -->
+                <button type="button" class="icones likeButton ml-3" id="likeButton">
+                    <svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M1.69 2A4.582 4.582 0 018 2.023 4.583 4.583 0 0111.88.817h.002a4.618 4.618 0 013.782 3.65v.003a4.543 4.543 0 01-1.011 3.84L9.35 14.629a1.765 1.765 0 01-2.093.464 1.762 1.762 0 01-.605-.463L1.348 8.309A4.582 4.582 0 011.689 2zm3.158.252A3.082 3.082 0 002.49 7.031l.005.005L7.2 11.778a.264.264 0 00.311.069.262.262 0 00.09-.069l5.312-5.547a3.043 3.043 0 00.68-2.573 3.118 3.118 0 00-2.551-2.463 3.079 3.079 0 00-2.612.816l-.007.007a1.501 1.501 0 01-2.045 0l-.009-.008a3.082 3.082 0 00-2.121-.861z" fill="white"></path>
                     </svg>
                 </button>
-                <input type="range">
-            </div>
-        </div>
+                <!-- Add the three-dot dropdown menu -->
+                <!-- Add the three-dot dropdown menu -->
+                <div class="dropdown ml-3">
+                    <button type="button" class="icones dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg role="img" height="16" width="16" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M3 9.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm5 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" fill="white"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">Add to Playlist</a>
+                        <a class="dropdown-item" href="#">Add to Liked Song's</a>
+                    </div>
+                </div>
+          </div>
     </div>
+</div>
 </div>
     </div>
   

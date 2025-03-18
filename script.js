@@ -40,9 +40,23 @@ document.addEventListener("DOMContentLoaded", function () {
             passwordField.type = (passwordField.type === "password") ? "text" : "password";
         });
     }
+
+      // Add event listeners to the like button and dropdown items for user interaction
+        document.querySelector('.likeButton').addEventListener('click', function() {
+            // Handle like button click
+            console.log('Song liked!');
+        });
+
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Handle dropdown item click
+                console.log(this.textContent + ' clicked');
+            });
+        });
 });
 
 
+// Dyamically Loaded Page Of Playlist's And Footer Interaction  
 document.addEventListener("DOMContentLoaded", function () {
     // ✅ Global Audio Object
     const audio = new Audio();
@@ -322,5 +336,43 @@ document.addEventListener("DOMContentLoaded", function () {
     audio.addEventListener("ended", function () {
         clearPlaybackState();
     });
+
+    
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const likeButton = document.querySelector(".likeButton");
+
+    if (likeButton) {
+        likeButton.addEventListener("click", function () {
+            console.log("Like button clicked!"); // Debugging
+
+            // Get song details
+            const songTitle = document.getElementById("songTitle")?.textContent;
+            const songAuthor = document.getElementById("songAuthor")?.textContent; 
+            
+            console.log("Title:", songTitle, "Author:", songAuthor); // Debug what's being captured
+            
+            // Validate details
+            if (!songTitle || !songAuthor) {
+                alert("No song is currently playing.");
+                return;
+            }
+
+            // Send data to backend - UPDATED to match PHP expectations
+            fetch("like_song.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ song_name: songTitle + " - " + songAuthor })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Response:", data); // Debug server response
+                alert(data.message);
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    } else {
+        console.error("Like button not found!");
+    }
+});

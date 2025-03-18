@@ -750,6 +750,33 @@ img {
     width: 5rem;
   }
   
+  /* Style the dropdown menu */
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.9); /* Dark background with reduced transparency */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 8px 0; /* Add padding */
+}
+
+/* Style the dropdown items */
+.dropdown-item {
+  color: white; /* Text color */
+  padding: 8px 16px; /* Add padding */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+  background-color: #dd6165; /* Light background on hover */
+  color: white; /* Ensure text color remains white */
+}
+
+/* Remove default Bootstrap focus styles */
+.dropdown-item:focus {
+  background-color: transparent; /* Remove focus background */
+  color: white; /* Ensure text color remains white */
+}
+  
   #audioBar input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
