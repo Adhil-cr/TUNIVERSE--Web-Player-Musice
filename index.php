@@ -66,16 +66,18 @@ session_start();
               Create Playlist
             </button>
 
+            <a href="liked_songs.php">
             <button id="likedSongsBtn">
               <div class="heart_bttn">
-                <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
-                  <path
-                    d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z">
-                  </path>
-                </svg>
+                  <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
+                      <path d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"></path>
+                  </svg>
               </div>
               Liked Songs
-            </button>
+          </button>
+            </a>
+          <!-- Container for dynamically loaded content -->
+          <div id="dynamicContent"></div>
 
           </div>
   
@@ -435,7 +437,6 @@ session_start();
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <a class="dropdown-item" href="#">Add to Playlist</a>
-                        <a class="dropdown-item" href="#">Add to Liked Song's</a>
                     </div>
                 </div>
           </div>

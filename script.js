@@ -336,8 +336,6 @@ document.addEventListener("DOMContentLoaded", function () {
     audio.addEventListener("ended", function () {
         clearPlaybackState();
     });
-
-    
 });
 
 document.addEventListener("DOMContentLoaded", function () {
