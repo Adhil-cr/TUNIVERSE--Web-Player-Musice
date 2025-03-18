@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Update Footer
     function updateFooter(track) {
-        musicDisplay.innerHTML = `<p><span id="songTitle">${track.name}</span> By <span id="songAuthor">${track.author}</span></p>`;
+        musicDisplay.innerHTML = `<p><span id="songTitle">${track.name}</span><br>By, <span id="songAuthor">${track.author}</span></p>`;
     }
 
     // ✅ Footer Play/Pause Control
@@ -323,3 +323,4 @@ document.addEventListener("DOMContentLoaded", function () {
         clearPlaybackState();
     });
 });
+

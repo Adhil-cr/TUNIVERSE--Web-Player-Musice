@@ -302,76 +302,79 @@ session_start();
 
             </section>
   
-            <!--recently played-->
+            <!--Hit play's-->
+            
             <section class="feedPlaylist">
-              <h4 class="mb-3"><a href="#">Recently Played</a></h4>
+              <h4 class="mb-3"><a href="#">Hit Play</a></h4>
               <br>
               <br>
+
               <ul class="playlists">
-                <li>
-                  <img src="">
+
+                <li class="album-card" data-album="Mallu Rap's">
+                  <img src="assets/Mallu Rap's.jpg">
+                  <span>Mallu Rap's</span>
+                  <p><br>ft.Vedan<br></p>
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
-                  <span></span>
-                  <p><br></p>
                 </li>
   
-                <li>
-                  <img src="">
+                <li class="album-card" data-album="Hindi Hit's">
+                  <img src="assets/Hindi Hit's.jpg">
+                  <span>Hindi Hit's</span>
+                  <p><br>Shreya Ghoshal,Vishal Dadlani,Akon and more</p>
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
-                  <span>song titile</span>
-                  <p><br>artist name</p>
                 </li>
   
-                <li>
-                  <img src="">
+                <li class="album-card" data-album="Midnight">
+                  <img src="assets/Midnight.jpg">
+                  <span>Midnight</span>
+                  <p><br>Aravin Venugopal,Shankar Mahadevan and more</p>
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
-                  <span></span>
-                  <p><br></p>
                 </li>
   
-                <li>
-                  <img src="">
+                <li class="album-card" data-album="Mystic Rhythms">
+                  <img src="assets/Mystic Rhythms.jpg">
+                  <span>Mystic Rhythms</span>
+                  <p><br>Job Kurian,Vidyasagar and more</p>
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
-                  <span></span>
-                  <p><br></p>
                 </li>
   
-                <li>
-                  <img src="">
+                <li class="album-card" data-album="Telungu hits">
+                  <img src="assets/Telungu hits.jpg">
+                  <span>Telungu hits</span>
+                  <p><br>Anurag Kulkarni, Dhruv Vikram and more </p>
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white">
                       </path>
                     </svg></button>
-                  <span></span>
-                  <p><br></p>
                 </li>
   
-                <li>
-                  <img src="">
+                <li class="album-card" data-album="Top streamed malayalam songs">
+                  <img src="assets/Top streamed malayalam songs.jpg">
+                  <span>Top streamed malayalam songs</span>
+                  <p><br>Shushin Shyam, Jakes bejoy</p>
                   <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                       <path
                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white" >
                       </path>
                     </svg></button>
-                  <span></span>
-                  <p><br></p>
                 </li>
               </ul>
             </section>
