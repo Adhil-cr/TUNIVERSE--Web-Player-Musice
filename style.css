@@ -88,6 +88,7 @@ body,
   width: 100%;
   font-size: 0.9em;
   font-weight: bold;
+  margin-top: -20px;
 }
 
 /* Common styles for button icons */

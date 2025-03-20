@@ -46,35 +46,24 @@ session_start();
                 </svg> Home</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                  <path
-                    d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z">
-                  </path>
-                </svg> Your Library</a>
             </li>
           </ul>
   
           <div id="underList">
             <button>
-              <div class="plus_bttn">
-                <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
-                  <path
-                    d="M15.25 8a.75.75 0 01-.75.75H8.75v5.75a.75.75 0 01-1.5 0V8.75H1.5a.75.75 0 010-1.5h5.75V1.5a.75.75 0 011.5 0v5.75h5.75a.75.75 0 01.75.75z">
-                  </path>
-                </svg>
+              <div class="">
               </div>
-              Create Playlist
             </button>
 
             <a href="liked_songs.php">
-            <button id="likedSongsBtn">
-              <div class="heart_bttn">
-                  <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
-                      <path d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"></path>
-                  </svg>
-              </div>
-              Liked Songs
-          </button>
+              <button id="likedSongsBtn">
+                <div class="heart_bttn">
+                    <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
+                        <path d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"></path>
+                    </svg>
+                </div>
+                Liked Songs
+              </button>
             </a>
           <!-- Container for dynamically loaded content -->
           <div id="dynamicContent"></div>
@@ -168,8 +157,11 @@ session_start();
               <ul id="playlistsRecentes" class="mb-5">
                 <li>
                    <img src="assets/Evanda Enakku Custody.jpg" alt="Evanda Enakku Custody">
-                   <span class="fw-semibold ms-3 me-auto">Evanda Enakku Custody</span>
-                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Evanda Enakku Custody.mp3">
+                   <div class="track-info">
+                      <span class="fw-semibold ms-3 me-auto">Evanda Enakku Custody</span>
+                      <br><span class="track-author" style="margin-left: 20px;">Santhosh Narayanan</span>
+                  </div>
+                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Santhosh Narayanan - Evanda Enakku Custody.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                         <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                       </svg>
@@ -178,8 +170,11 @@ session_start();
 
                 <li>
                   <img src="assets/Oru Kathilola.jpg" alt="Oru Kathilola">
-                  <span class="fw-semibold ms-3 me-auto">Oru Kathilola</span>
-                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Oru Kathilola.mp3">
+                  <div class="track-info">
+                      <span class="fw-semibold ms-3 me-auto">Oru Kathilola</span>
+                      <br><span class="track-author" style="margin-left: 20px;">M. G. Sreekumar</span>
+                  </div>
+                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/M. G. Sreekumar - Oru Kathilola.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                          <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                       </svg>
@@ -188,8 +183,11 @@ session_start();
 
                 <li>
                     <img src="assets/Manwa Laage.jpg" alt="Manwa Laage">
-                    <span class="fw-semibold ms-3 me-auto">Manwa Laage</span>
-                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Manwa Laage.mp3">
+                    <div class="track-info">
+                      <span class="fw-semibold ms-3 me-auto">Manwa Laage</span>
+                      <br><span class="track-author" style="margin-left: 20px;">Shreya Ghoshal </span>
+                    </div>
+                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Shreya Ghoshal - Manwa Laage.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                           <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
@@ -198,8 +196,11 @@ session_start();
 
                 <li>
                   <img src="assets/Moral of the Story.jpg" alt="Moral of the Story">
-                  <span class="fw-semibold ms-3 me-auto">Moral of the Story</span>
-                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Moral of the Story.mp3">
+                  <div class="track-info">
+                      <span class="fw-semibold ms-3 me-auto">Moral of the Story</span>
+                      <br><span class="track-author" style="margin-left: 20px;">Ashe</span>
+                  </div>
+                  <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Ashe - Moral of the Story.mp3">
                       <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                           <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                       </svg>
@@ -208,8 +209,11 @@ session_start();
 
                 <li>
                     <img src="assets/Ajitha Hare.jpg" alt="Ajitha Hare">
-                    <span class="fw-semibold ms-3 me-auto">Ajitha Hare</span>
-                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Ajitha Hare.mp3">
+                    <div class="track-info">
+                      <span class="fw-semibold ms-3 me-auto">Ajitha Hare</span>
+                      <br><span class="track-author" style="margin-left: 20px;">Gouri Lakshmi</span>
+                    </div>
+                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Gouri Lakshmi - Ajitha Hare.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
@@ -218,8 +222,11 @@ session_start();
 
                 <li>
                     <img src="assets/Let Her Go x Husn.jpg" alt="Let Her Go x Husn">
-                    <span class="fw-semibold ms-3 me-auto">Let Her Go x Husn</span>
-                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Let Her Go x Husn.mp3">
+                    <div class="track-info">
+                      <span class="fw-semibold ms-3 me-auto">Let Her Go x Husn</span>
+                      <br><span class="track-author" style="margin-left: 20px;">Grevero Mashup</span>
+                    </div>
+                    <button type="button" class="btn me-3 play-btn" data-src="music/Headerplaylist/Grevero Mashup - Let Her Go x Husn.mp3">
                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
                             <path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z" fill="white"></path>
                         </svg>
